@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('course_topic_id');
-            $table->longText('description');
+            $table->text('description');
             $table->enum('description_type', ['md', 'text'])->default('text');
             $table->boolean('is_paid')->nullable()->default(false);
             $table->softDeletes();

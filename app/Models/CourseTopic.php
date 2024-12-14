@@ -15,6 +15,4 @@ class CourseTopic extends Model
     {
         return $this->hasMany(CourseTopicResource::class);
     }
-
-
 }

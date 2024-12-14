@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->longText('short_description')->nullable()->default(null);
+            $table->text('short_description')->nullable()->default(null);
             $table->string('video_count');
             $table->string('word_count');
             $table->string('publish_date');

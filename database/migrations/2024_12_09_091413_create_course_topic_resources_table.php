@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('course_topic_id');
-            $table->string('title');
-            $table->longText('info');
+            $table->text('title');
+            $table->text('info');
             $table->enum('info_type', ['md', 'text', 'link'])->default('text');
             $table->enum('show_in', ['modal', 'external', 'internal'])->default('external')->comment('external means description open in another tab');
             $table->boolean('is_paid')->nullable()->default(false);

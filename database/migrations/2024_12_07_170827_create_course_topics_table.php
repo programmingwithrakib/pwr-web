@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('time_duration')->nullable()->default(null);
-            $table->longText('description')->nullable()->default(null);
+            $table->text('description')->nullable()->default(null);
             $table->enum('description_type', ['md', 'text'])->default('text');
             $table->string('video_link')->nullable()->default(null);
             $table->enum('video_type', ['youtube', 'vimeo', 'local', 'others'])->default('youtube');

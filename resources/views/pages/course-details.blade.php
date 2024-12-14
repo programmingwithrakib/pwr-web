@@ -59,7 +59,7 @@
 
                             @elseif($active_topic->play_as == "image")
                                 <div class="video-description">
-                                    <img class="img-fluid" src="{{$active_topic->image}}" alt="{{$topic->name}}">
+                                    <img class="img-fluid" src="{{$active_topic->image}}" alt="{{$active_topic->name}}">
                                 </div>
                             @endif
 
