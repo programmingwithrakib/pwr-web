@@ -19,13 +19,39 @@ body{
     background-color: var(--site-body-color);
 }
 
+#markdown h3{
+    background: #021526;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    line-height: 1.5;
+    word-break: normal;
+    font-size: 18px;
+}
+
+#markdown h4{
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    font-size: 16px;
+    text-decoration-color: #c2b6b6;
+    margin-bottom: 15px;
+}
+
 #markdown ul p, #markdown ol p{
     margin: 0;
     line-height: 1.5;
 }
+#markdown ul li *:last-child, #markdown ol li *:last-child{
+    margin-bottom: 15px;
+}
 
 
 #markdown ul, #markdown ol{
+    margin: 10px 0;
+}
+
+#markdown ul pre, #markdown ol pre{
     margin: 10px 0;
 }
 
@@ -37,6 +63,16 @@ body{
     color: var(--bs-table-color);
     border-color: var(--bs-table-border-color);
 }
+
+
+
+#markdown strong{
+    font-weight: bold;
+}
+
+
+
+
 
 .playwrite-hr-lijeva-regular {
     font-family: "Playwrite HR Lijeva", cursive;
