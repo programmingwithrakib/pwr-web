@@ -109,6 +109,12 @@ body{
     color: var(--site-text-color-light);
 }
 
+.navbar-toggler{
+    border: 2px solid var(--site-bg-primary-color);
+    color: var(--site-bg-primary-color);
+}
+
+
 .btn-light{
     background-color: var(--site-border-color-light);
     font-weight: 500;

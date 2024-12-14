@@ -1,14 +1,14 @@
 <nav id="navbar" class="shadow">
-    <div class="container navbar navbar-expand-sm navbar-dark ">
+    <div class="container navbar navbar-expand-md">
         <div class="container-fluid">
             <a class="navbar-brand playwrite-hr-lijeva-regular" href="{{route('home')}}">
                 <img style="height: 50px" src="{{asset('assets/images/logo.png')}}">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menus">
+                <span class="bi bi-list"></span>
             </button>
-            <div class="collapse navbar-collapse " id="mynavbar">
-                <div class="d-flex justify-content-between w-100">
+            <div class="collapse navbar-collapse " id="navbar-menus">
+                <div class="d-flex flex-column flex-md-row justify-content-between w-100">
                     <div style="visibility: hidden">i</div>
                     <ul class="navbar-nav">
                         <li class="nav-item">

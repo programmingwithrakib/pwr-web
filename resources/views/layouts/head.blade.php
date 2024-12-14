@@ -5,6 +5,7 @@
 <link href="{{asset("assets/vendors/animate.min.css")}}" rel="stylesheet">
 <link href="{{asset("assets/vendors/plyr/plyr.css")}}" rel="stylesheet">
 <link href="{{asset("assets/css/style.css")}}" rel="stylesheet">
+<link href="{{asset("assets/css/responsive.css")}}" rel="stylesheet">
 
 {{--<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
