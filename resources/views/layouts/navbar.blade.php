@@ -26,15 +26,43 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('pricing')}}">প্রাইসিং</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('login')}}">লগ ইন</a>
-                        </li>
+                        @if(!auth()->check())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('login')}}">লগ ইন</a>
+                            </li>
+                        @endif
+
                     </ul>
                     <!--<form class="d-flex mb-0">
                         <input class="form-control me-2" type="text" placeholder="Search">
                         <button class="btn btn-primary" type="button">Search</button>
                     </form>-->
-                    <a href="#" class="btn btn-brand">জয়েন প্রিমিয়াম</a>
+
+                    @if(auth()->check())
+                        <div class="dropdown">
+                            <button type="button" class="btn" data-bs-toggle="dropdown">
+                                @if(!auth()->user()->image)
+                                    <b style="height: 40px; width: 40px; border-radius: 50%" class="border p-2">
+                                        {{\App\Helper::MakeNameToShort(auth()->user()->name)}}
+                                    </b>
+                                @else
+                                    <img style="height: 40px;width: 40px; border-radius: 50%;object-fit: cover" src="{{auth()->user()->image}}">
+                                @endif
+
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-1"></i>{{auth()->user()->name}}</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-1"></i>Settings</a></li>
+                                <li>
+                                    <form action="{{route('logout')}}" method="POST">@csrf</form>
+                                    <a onclick="$(this).prev().submit()" class="dropdown-item" href="#"><i class="bi bi-box-arrow-left me-1"></i>Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    @else
+                        <a href="#" class="btn btn-brand">জয়েন প্রিমিয়াম</a>
+                    @endif
+
                 </div>
 
             </div>

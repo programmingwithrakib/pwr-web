@@ -1,0 +1,17 @@
+
+.card{
+    border: 2px solid var(--site-bg-primary-color);
+}
+
+.form-control:focus{
+    box-shadow: none;
+    border-color: var(--site-bg-primary-color);
+}
+
+.link{
+    color: var(--site-bg-secondary-color)
+}
+
+.link:hover{
+    color: var(--site-bg-primary-color)
+}

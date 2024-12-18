@@ -4,18 +4,14 @@
     <title>Programming With Rakib</title>
     <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}">
     @include('layouts.head')
+    <link href="{{asset('assets/css/auth.css')}}" rel="stylesheet">
     @yield('css')
 </head>
-<body>
+    <body>
 
-<!-- Top Navbar -->
-@include('layouts.navbar')
+    @yield('content')
 
 
-@yield('content')
-
-@include('layouts.footer')
-
-@yield('script')
-</body>
+    @yield('script')
+    </body>
 </html>

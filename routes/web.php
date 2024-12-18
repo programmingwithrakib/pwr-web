@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\CourseDetailsController;
@@ -10,6 +11,19 @@ Route::get('/curriculum', [UtilityPageController::class, 'upcoming'])->name('cur
 Route::get('/quick-tips', [UtilityPageController::class, 'upcoming'])->name('quick-tips');
 Route::get('/roadmap', [UtilityPageController::class, 'upcoming'])->name('roadmap');
 Route::get('/pricing', [UtilityPageController::class, 'upcoming'])->name('pricing');
-Route::get('/login', [UtilityPageController::class, 'upcoming'])->name('login');
+
+Route::get('/sign-in', [AuthController::class, 'login'])->name('login');
+
+Route::get('/auth/github/redirect', [AuthController::class, 'loginWithGithub'])->name('login.github');
+Route::get('/auth/github', [AuthController::class, 'loginWithGithubAction']);
+
+Route::get('/auth/google/redirect', [AuthController::class, 'loginWithGoogle'])->name('login.google');
+Route::get('/auth/google/callback', [AuthController::class, 'loginWithGoogleAction']);
+
+
+Route::post('/sign-in', [AuthController::class, 'loginAction'])->name('login');
+Route::post('/sign-out', [AuthController::class, 'logout'])->name('logout');
+Route::get('/sign-up', [AuthController::class, 'signup'])->name('signup');
+Route::post('/sign-up', [AuthController::class, 'signupAction'])->name('signup');
 
 
