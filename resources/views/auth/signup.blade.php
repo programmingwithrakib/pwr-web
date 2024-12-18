@@ -28,7 +28,7 @@
 
 
 
-                    <form id="formAuthentication" class="mb-3 row" style="max-width: 600px" action="{{route('signup')}}" method="POST">
+                    <form enctype="multipart/form-data" id="formAuthentication" class="mb-3 row" style="max-width: 600px" action="{{route('signup')}}" method="POST">
                         @csrf
                         <div class="mb-3 col-md-6">
                             <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
