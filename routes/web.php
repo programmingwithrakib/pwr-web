@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomePageController;
@@ -25,5 +26,11 @@ Route::post('/sign-in', [AuthController::class, 'loginAction'])->name('login');
 Route::post('/sign-out', [AuthController::class, 'logout'])->name('logout');
 Route::get('/sign-up', [AuthController::class, 'signup'])->name('signup');
 Route::post('/sign-up', [AuthController::class, 'signupAction'])->name('signup');
+
+
+Route::prefix('account')->name('account.')->group(function () {
+   Route::get('/profile', [AccountController::class, 'profile'])->name('profile');
+   Route::get('/reads', [AccountController::class, 'reads'])->name('reads');
+});
 
 

@@ -51,11 +51,11 @@
 
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-person me-1"></i>{{auth()->user()->name}}</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-1"></i>Settings</a></li>
+                                <li><a class="dropdown-item" href="{{route('account.profile')}}"><i class="bi bi-person me-1"></i>{{auth()->user()->name}}</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-1"></i>সেটিংস</a></li>
                                 <li>
                                     <form action="{{route('logout')}}" method="POST">@csrf</form>
-                                    <a onclick="$(this).prev().submit()" class="dropdown-item" href="#"><i class="bi bi-box-arrow-left me-1"></i>Logout</a>
+                                    <a onclick="$(this).prev().submit()" class="dropdown-item" href="#"><i class="bi bi-box-arrow-left me-1"></i>সাইন আঊট</a>
                                 </li>
                             </ul>
                         </div>

@@ -307,3 +307,26 @@ body{
 .coming-soon-area *{
     margin-top: 1px;
 }
+
+.form-control:focus{
+    box-shadow: none;
+    border: 1px solid var(--site-bg-secondary-color)
+}
+
+.account-sidebar .nav-link{
+    border-bottom: 1px solid rgba(112, 128, 144, 0.24);
+}
+
+.account-sidebar .nav-link.active{
+    text-decoration: none;
+    background-color: rgba(105, 50, 213, 0.07);
+}
+
+.account-sidebar .nav-link:hover{
+    text-decoration: none;
+    background-color: rgba(105, 50, 213, 0.07);
+}
+
+tr td{
+    vertical-align: middle;
+}
