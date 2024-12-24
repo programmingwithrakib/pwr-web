@@ -70,7 +70,7 @@ class AuthController extends Controller
     public function loginWithGoogleAction()
     {
 
-        $googleUser =Socialite::driver('google')->stateless()->user();
+        $googleUser = Socialite::driver('google')->stateless()->user();
 
         $user = User::updateOrCreate([
             'provider_id' => $googleUser->id,

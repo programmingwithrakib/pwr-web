@@ -30,7 +30,12 @@ Route::post('/sign-up', [AuthController::class, 'signupAction'])->name('signup')
 
 Route::prefix('account')->name('account.')->group(function () {
    Route::get('/profile', [AccountController::class, 'profile'])->name('profile');
+   Route::post('/update-profile', [AccountController::class, 'updateProfile'])->name('update_profile');
    Route::get('/reads', [AccountController::class, 'reads'])->name('reads');
+
+
+   Route::post('action-bookmark/{topic_id}', [AccountController::class, 'actionBookmark'])->name('action_bookmark');
+   Route::post('action-importance/{topic_id}', [AccountController::class, 'actionImportance'])->name('action_importance');
 });
 
 

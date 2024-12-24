@@ -73,6 +73,16 @@ class Helper
     }
 
 
+    static function ConvertEnglishToBanglaNumber($number) {
+        // Arrays of English and Bangla digits
+        $englishDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        $banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+
+        // Replace English digits with Bangla digits
+        return str_replace($englishDigits, $banglaDigits, $number);
+    }
+
+
 
 }
 

@@ -8,7 +8,10 @@
 <link href="{{asset("assets/css/responsive.css")}}" rel="stylesheet">
 
 {{--<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>--}}
+<script src="https://momentjs.com/downloads/moment.min.js"></script>
+<script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="{{asset("assets/vendors/bootstrap/bootstrap.min.js")}}"></script>
 <script src="{{asset("assets/vendors/markdown-it.min.js")}}"></script>
 <script src="{{asset("assets/vendors/jquery.min.js")}}"></script>

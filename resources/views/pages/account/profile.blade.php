@@ -1,6 +1,8 @@
 @extends('layouts.account_app')
 @section('page-data')
-        <form class="form">
+
+        <form method="POST" enctype="multipart/form-data" class="form" action="{{route('account.update_profile')}}">
+            @csrf
             <div class="form-group">
                 <label class="form-label">নাম</label>
                 <input type="text" value="{{auth()->user()?->name}}" name="name" class="form-control">
@@ -15,7 +17,7 @@
             </div>
 
             <div class="mt-3">
-                <img style="height: 150px" alt="profile-image" class="border" src="{{auth()->user()?->image ?? 'https://oldweb.brur.ac.bd/wp-content/uploads/2019/03/male.jpg'}}">
+                <img style="height: 150px" alt="profile-image" name="image" class="border" src="{{auth()->user()?->image ?? 'https://oldweb.brur.ac.bd/wp-content/uploads/2019/03/male.jpg'}}">
             </div>
 
             <div class="form-group mt-4">

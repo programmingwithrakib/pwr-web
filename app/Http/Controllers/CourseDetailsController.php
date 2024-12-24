@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bookmark;
 use App\Models\Course;
+use App\Models\Importance;
+use App\Models\ReadHistory;
 use Illuminate\Http\Request;
 
 class CourseDetailsController extends Controller
@@ -37,6 +40,34 @@ class CourseDetailsController extends Controller
         $active_topic_docs = $active_topic->topic_data;
         $resources = $active_topic->resources;
 
+        // Add To Read This Topics
+        if(auth()->check()){
+            $read_history = ReadHistory::where(['user_id' => auth()->id(), 'course_topic_id' => $active_topic->id])->first();
+            if($read_history){
+                $read_history->last_visited_time = date('Y-m-d H:i:s');
+                $read_history->count_of_read = $read_history->count_of_read + 1;
+                $read_history->save();
+            }
+            else{
+                $read_history = new ReadHistory();
+                $read_history->user_id = auth()->id();
+                $read_history->course_topic_id = $active_topic->id;
+                $read_history->count_of_read = 1;
+                $read_history->last_visited_time = date('Y-m-d H:i:s');
+                $read_history->save();
+            }
+
+        }
+
+
+        //Check Bookmarks And Importance
+        $has_in_bookmarks = false;
+        $has_in_importance = false;
+        if (auth()->check()) {
+            $has_in_bookmarks = (bool)Bookmark::where('user_id', auth()->id())->where('course_topic_id', $active_topic->id)->exists();
+            $has_in_importance = (bool)Importance::where('user_id', auth()->id())->where('course_topic_id', $active_topic->id)->exists();
+        }
+
 
         return view('pages.course-details', compact(
     'course',
@@ -46,7 +77,9 @@ class CourseDetailsController extends Controller
             'next_topic',
             'prev_topic',
             'active_topic_docs',
-            'resources'
+            'resources',
+            'has_in_bookmarks',
+            'has_in_importance'
         ));
     }
 }

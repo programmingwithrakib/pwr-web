@@ -134,6 +134,42 @@
                         </ul>
                     </div>
                 </div>
+
+
+
+                <div class="topic-action-buttons position-fixed" style="right: 100px; bottom: 150px">
+                   <button class="slide-expend-btn  d-block btn btn-outline-dark mb-2">
+                       <span class="text me-2 d-none">মন্তব্য করুন</span>
+                       <i style="margin-top: 2px" class="bi icon bi-chat-left"></i>
+                   </button>
+                </div>
+
+                <div class="topic-action-buttons position-fixed" style="right: 100px; bottom: 100px">
+                   <button class="slide-expend-btn bookmark-action d-block btn {{$has_in_bookmarks ? 'btn-danger' : 'btn-outline-danger' }}  mb-2">
+                       <span class="text me-2 d-none">
+                           @if($has_in_bookmarks)
+                               বুকমার্কে থেকে মুছে ফেলুন
+                           @else
+                               বুকমার্কে যুক্ত করুন
+                           @endif
+
+                       </span>
+                       <i style="margin-top: 2px" class="bi icon bi-heart"></i>
+                   </button>
+                </div>
+
+                <div class="topic-action-buttons position-fixed" style="right: 100px; bottom: 50px">
+                   <button class="slide-expend-btn importance-action d-block btn {{$has_in_importance ? 'btn-success' : 'btn-outline-success' }}  mb-2">
+                       <span class="text me-2 d-none">
+                           @if($has_in_importance)
+                               গুরুত্বপূর্ন বিষয় থেকে মুছে ফেলুন
+                           @else
+                               গুরুত্বপূর্ন বিষয়ে যুক্ত করুন
+                           @endif
+                       </span>
+                       <i style="margin-top: 2px" class="bi icon bi-journal-arrow-up"></i>
+                   </button>
+                </div>
             </div>
         </div>
     </div>
@@ -145,5 +181,47 @@
         document.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightElement(block);
         });
+
+        //Add or remove topic from bookmarks
+        $('.bookmark-action').on('click', function (){
+            let bookmark_btn = $(this);
+            let url = "{{route('account.action_bookmark', 'x')}}".replace('x', "{{$active_topic->id}}")
+            axios.post(url).then(function (response){
+                if(response.status === 200){
+                    let status = response.data;
+                    if(status){
+                        bookmark_btn.removeClass('btn-outline-danger');
+                        bookmark_btn.addClass('btn-danger')
+                        bookmark_btn.find('.text').text("বুকমার্কে থেকে মুছে ফেলুন")
+                    }
+                    else{
+                        bookmark_btn.removeClass('btn-danger');
+                        bookmark_btn.addClass('btn-outline-danger')
+                        bookmark_btn.find('.text').text("বুকমার্কে যুক্ত করুন")
+                    }
+                }
+            })
+        })
+
+        //Add or remove topic from importance
+        $('.importance-action').on('click', function (){
+            let btn = $(this);
+            let url = "{{route('account.action_importance', 'x')}}".replace('x', "{{$active_topic->id}}")
+            axios.post(url).then(function (response){
+                if(response.status === 200){
+                    let status = response.data;
+                    if(status){
+                        btn.removeClass('btn-outline-success');
+                        btn.addClass('btn-success')
+                        btn.find('.text').text("গুরুত্বপূর্ন বিষয় থেকে মুছে ফেলুন")
+                    }
+                    else{
+                        btn.removeClass('btn-success');
+                        btn.addClass('btn-outline-success')
+                        btn.find('.text').text("গুরুত্বপূর্ন বিষয়ে যুক্ত করুন")
+                    }
+                }
+            })
+        })
     </script>
 @endsection

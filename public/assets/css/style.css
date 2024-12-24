@@ -82,7 +82,7 @@ body{
 }
 
 
-.tiro-bangla-regular {
+.tiro-bangla-regular, .number {
     font-family: "Tiro Bangla", serif!important;
     font-weight: 400;
     font-style: normal;
@@ -327,6 +327,28 @@ body{
     background-color: rgba(105, 50, 213, 0.07);
 }
 
+.pagination .page-item .page-link{
+    color: var(--site-bg-secondary-color);
+}
+.pagination .page-item .page-link:focus{
+    box-shadow: none;
+}
+.pagination .page-item.active .page-link{
+    background-color: var(--site-bg-secondary-color);
+    border: none;
+    color: white;
+}
+
+.bg-brand{
+    background-color: var(--site-bg-primary-color);
+}
+
 tr td{
     vertical-align: middle;
 }
+
+.slide-expend-btn:hover .text{
+    display: inline-block!important;
+}
+
+
