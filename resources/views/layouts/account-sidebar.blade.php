@@ -21,14 +21,14 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link {{request()->routeIs('account.bookmarks') ? 'active' : ''}}" href="{{route('account.bookmarks')}}">
             <i class="bi bi-heart me-1"></i>
             <span>আমার বুক-মার্ক সমূহ</span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link {{request()->routeIs('account.importances') ? 'active' : ''}}" href="{{route('account.importances')}}">
             <i class="bi bi-journal-arrow-up me-1"></i>
             <span>গুরুত্বপূর্ন বিষয়াবলি</span>
         </a>

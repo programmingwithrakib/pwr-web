@@ -43,6 +43,14 @@ class AccountController extends Controller
         $read_history =  auth()->user()->read_history()->with('course_topic')->orderBy('last_visited_time', 'desc')->paginate(5);
         return view('pages.account.reads', compact('read_history'));
     }
+    public function bookmarks(){
+        $bookmarks =  auth()->user()->bookmarks()->with('course_topic')->orderBy('id', 'desc')->paginate(5);
+        return view('pages.account.bookmarks', compact('bookmarks'));
+    }
+    public function importances(){
+        $importances =  auth()->user()->importances()->with('course_topic')->orderBy('id', 'desc')->paginate(5);
+        return view('pages.account.importances', compact('importances'));
+    }
 
 
     /**
