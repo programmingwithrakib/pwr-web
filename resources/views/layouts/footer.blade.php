@@ -24,16 +24,16 @@
                         <h3 class="ms-2">লিঙ্ক</h3>
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">প্রাইভেসি পলিসি</a>
+                                <a class="nav-link active" href="{{route('privacy-policy')}}">প্রাইভেসি পলিসি</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">টার্মস অ্যান্ড কন্ডিশন</a>
+                                <a class="nav-link" href="{{route('terms-and-condition')}}">টার্মস অ্যান্ড কন্ডিশন</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">কপিরাইট পলিসি</a>
+                                <a class="nav-link" href="{{route('copyright-policy')}}">কপিরাইট পলিসি</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">কোড অফ কন্ডাক্ট</a>
+                                <a class="nav-link" href="{{route('code-of-conduct')}}">কোড অফ কন্ডাক্ট</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">সাপোর্ট</a>

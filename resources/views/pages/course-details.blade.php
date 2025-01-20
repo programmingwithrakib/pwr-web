@@ -84,9 +84,10 @@
                                 <div>{!! $active_topic->description  !!}</div>
                             @else
                                 <div id="markdown" class=" bg-white text-dark py-2">
-                                    <script>
+                                    {!! \Parsedown::instance()->text($active_topic->description) !!}
+                                    {{--<script>
                                         document.write(md.render(@json($active_topic->description)))
-                                    </script>
+                                    </script>--}}
                                 </div>
                             @endif
 
@@ -98,9 +99,10 @@
                                     <div>{!! $docs->description  !!}</div>
                                 @else
                                     <div id="markdown" class=" bg-white text-dark py-2">
-                                        <script>
+                                        {!! \Parsedown::instance()->text($docs->description) !!}
+                                        {{--<script>
                                             document.write(md.render(@json($docs->description)))
-                                        </script>
+                                        </script>--}}
                                     </div>
                                 @endif
                             @endforeach
@@ -178,9 +180,10 @@
 @section('script')
     <script>
         const player = new Plyr('#player');
-        document.querySelectorAll('pre code').forEach((block) => {
-            hljs.highlightElement(block);
-        });
+
+        markDown();
+        findEnglishDigitToBangla()
+
 
         //Add or remove topic from bookmarks
         $('.bookmark-action').on('click', function (){

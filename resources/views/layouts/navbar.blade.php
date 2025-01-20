@@ -60,7 +60,9 @@
                             </ul>
                         </div>
                     @else
-                        <a href="#" class="btn btn-brand">জয়েন প্রিমিয়াম</a>
+                        <div>
+                            <a href="#" class="btn btn-brand">জয়েন প্রিমিয়াম</a>
+                        </div>
                     @endif
 
                 </div>
