@@ -17,7 +17,7 @@ class ContentReadingCount extends Model
             'model_id' => $model_id,
             'model' => $model,
             'reading_date' => date('Y-m-d'),
-            'ip_address' => $_SERVER['REMOTE_ADDR'],
+            'ip_address' => request()->ip(),
         ];
 
         try {
