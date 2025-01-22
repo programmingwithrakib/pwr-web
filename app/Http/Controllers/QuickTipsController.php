@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContentReadingCount;
 use App\Models\Course;
 use App\Models\QuickTip;
 use Illuminate\Http\Request;
@@ -52,6 +53,9 @@ class QuickTipsController extends Controller
     {
         $quick_tip = QuickTip::where('slug', $slug)->firstOrFail();
         $course_wise_quick_tips = QuickTip::where('course_id', $quick_tip->course_id)->where('id', '!=', $quick_tip->id)->get();
+
+        ContentReadingCount::Read($quick_tip->id, $quick_tip::class);
+
         return view('pages.quick-tips.details', compact('quick_tip', 'course_wise_quick_tips'));
     }
 }

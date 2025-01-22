@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
+use App\Models\ContentReadingCount;
 use App\Models\Course;
 use App\Models\Importance;
 use App\Models\ReadHistory;
@@ -68,6 +69,7 @@ class CourseDetailsController extends Controller
             $has_in_importance = (bool)Importance::where('user_id', auth()->id())->where('course_topic_id', $active_topic->id)->exists();
         }
 
+        ContentReadingCount::Read($active_topic->id, $active_topic::class);
 
         return view('pages.course-details', compact(
     'course',

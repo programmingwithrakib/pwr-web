@@ -14,7 +14,7 @@ Route::get('/course/{course_slug}/{topic_slug?}', [CourseDetailsController::clas
 Route::get('/curriculum', [UtilityPageController::class, 'upcoming'])->name('curriculum');
 Route::get('/quick-tips', [QuickTipsController::class, 'index'])->name('quick-tips');
 Route::get('/quick-tips/search', [QuickTipsController::class, 'search'])->name('quick-tips.search');
-Route::get('/shortcuts/{slug}', [TopicShortCutController::class, 'details'])->name('topic-shortcuts.details');
+Route::get('/notes/{slug}', [TopicShortCutController::class, 'details'])->name('topic-shortcuts.details');
 
 Route::get('/quick-tips/{slug}', [QuickTipsController::class, 'details'])->name('quick-tips.details');
 Route::get('/roadmap', [UtilityPageController::class, 'upcoming'])->name('roadmap');
