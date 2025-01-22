@@ -68,13 +68,13 @@
 
                         <div class="d-flex p-2 prev-next justify-content-between align-items-center my-2 border-bottom-custom">
                             <a href="@if($prev_topic) {{route('course-details', [$course->slug, $prev_topic->slug])}} @endif" class="btn @if(!$prev_topic) disabled @endif btn-brand-secondary ">
-                                <i class="bi bi-arrow-left-circle me-2"></i>
-                                <span>পূর্ববর্তী</span>
+                                <i class="bi bi-arrow-left-circle me-2 next-prev-arrow"></i>
+                                <span class="d-none d-md-inline-block ">পূর্ববর্তী</span>
                             </a>
                             <h4 class="fw-bold p-1 mb-0">{{$active_topic->name}}</h4>
                             <a href="@if($next_topic) {{route('course-details', [$course->slug, $next_topic->slug])}} @endif" class="btn @if(!$next_topic) disabled @endif btn-brand-secondary">
-                                <span>পরবর্তী</span>
-                                <i class="bi bi-arrow-right-circle me-2"></i>
+                                <span class="d-none d-md-inline-block">পরবর্তী</span>
+                                <i class="bi bi-arrow-right-circle next-prev-arrow me-2"></i>
                             </a>
                         </div>
 
@@ -180,6 +180,12 @@
                             <i style="margin-top: 2px" class="bi icon bi-journal-arrow-up"></i>
                         </button>
                     </div>
+
+                    <div class="topic-action-buttons d-block d-md-none">
+                        <button class="d-block btn btn-outline-dark mb-2" data-bs-toggle="offcanvas" data-bs-target="#resource-menu-sidebar">
+                            <i style="margin-top: 2px" class="bi icon bi-list-columns"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -207,6 +213,35 @@
                             <span> {{$topic->name}} </span>
                         </a>
                     </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
+    <!-- Resources Offcanvas-->
+    <div class="offcanvas offcanvas-end" id="resource-menu-sidebar">
+        <div class="offcanvas-header">
+            <h1 class="offcanvas-title">রিসোর্স এন্ড গাইডলাইন</h1>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                @foreach($resources as $resource)
+                    @if($resource->info_type == "link")
+                        <li class="nav-item">
+                            <a target="{{$resource->show_in == "external" ? '_blank' : '_self'}}" class="nav-link active" href="{{$resource->info_type = "link" ? $resource->info : '#'}}">
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span> {{$resource->title}} </span>
+                            </a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span> {{$resource->title}} </span>
+                            </a>
+                        </li>
+                    @endif
                 @endforeach
             </ul>
         </div>

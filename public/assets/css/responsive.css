@@ -14,6 +14,10 @@
     .slide-expend-btn:hover .text{
         display: none!important;
     }
+
+    .course-details .next-prev-arrow{
+        margin: 0px!important;
+    }
 }
 
 /* Small devices (≥576px) */
