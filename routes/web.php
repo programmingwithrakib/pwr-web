@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\QuickTipsController;
+use App\Http\Controllers\TopicShortCutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\CourseDetailsController;
@@ -13,7 +14,7 @@ Route::get('/course/{course_slug}/{topic_slug?}', [CourseDetailsController::clas
 Route::get('/curriculum', [UtilityPageController::class, 'upcoming'])->name('curriculum');
 Route::get('/quick-tips', [QuickTipsController::class, 'index'])->name('quick-tips');
 Route::get('/quick-tips/search', [QuickTipsController::class, 'search'])->name('quick-tips.search');
-
+Route::get('/shortcuts/{slug}', [TopicShortCutController::class, 'details'])->name('topic-shortcuts.details');
 
 Route::get('/quick-tips/{slug}', [QuickTipsController::class, 'details'])->name('quick-tips.details');
 Route::get('/roadmap', [UtilityPageController::class, 'upcoming'])->name('roadmap');

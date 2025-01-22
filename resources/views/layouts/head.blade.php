@@ -4,8 +4,12 @@
 <link href="{{asset("assets/vendors/bootstrap/bootstrap.min.css")}}" rel="stylesheet">
 <link href="{{asset("assets/vendors/animate.min.css")}}" rel="stylesheet">
 <link href="{{asset("assets/vendors/plyr/plyr.css")}}" rel="stylesheet">
-{{--<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" rel="stylesheet">--}}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/xcode.min.css" rel="stylesheet">
+@if(isset($code_theme) && $code_theme == 'dark')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" rel="stylesheet">
+@else
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/xcode.min.css" rel="stylesheet">
+@endif
+
 <link href="{{asset("assets/css/style.css")}}" rel="stylesheet">
 <link href="{{asset("assets/css/responsive.css")}}" rel="stylesheet">
 
@@ -31,50 +35,57 @@
         color: black;    /* Optional: Change color */
     }
 
-    pre code{
-        border-radius: 5px;
-
+    .code-container {
+        position: relative;
     }
 
-
-    /* Style for the copy button */
     .copy-button {
         position: absolute;
         top: 5px;
         right: 5px;
-        background-color: transparent;
-        color: var(--site-bg-primary-color);
         border: none;
         padding: 3px 6px;
         cursor: pointer;
         font-size: 10px;
     }
 
-    .copy-button:hover {
-        background-color: var(--site-bg-primary-color);
-        color: white;
-    }
 
-    /* Code block container */
-    .code-container {
-        position: relative;
-    }
+    @if(isset($code_theme) && $code_theme == 'dark')
+            .copy-button {
+                background-color: transparent;
+                color: var(--site-body-color);
+            }
 
-    .hljs{
-        background-color: var(--site-body-color);
-    }
-    .hljs-tag{
-        /*color: white;*/
-    }
+            .copy-button:hover {
+                background-color: var(--site-body-color);
+                color: var(--site-bg-secondary-color);
+            }
 
-    .hljs-tag .hljs-attr, .hljs-tag .hljs-name {
-        /*color: #efe29b;*/
-    }
 
-    .hljs-tag .htjs-attr{
+    @else
+        /* Style for the copy button */
+        .copy-button {
+            background-color: transparent;
+            color: var(--site-bg-primary-color);
+        }
 
-    }
-    .hljs-tag .htjs-string{
+        .copy-button:hover {
+            background-color: var(--site-bg-primary-color);
+            color: white;
+        }
+
+        /* Code block container */
+        .code-container {
+            position: relative;
+        }
+
+        .hljs{
+            background-color: var(--site-body-color);
+        }
+    @endif
+
+    pre code{
+        border-radius: 5px;
 
     }
 </style>

@@ -4,7 +4,7 @@
         <div class="container">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-3 p-2 course-topics">
+                    <div class="col-md-3 d-none d-md-block p-2 course-topics">
                         <h5 class="course-topic-title">{{$course->name}}</h5>
                         <ul class="nav flex-column">
 
@@ -139,15 +139,23 @@
 
 
 
-                <div class="topic-action-buttons position-fixed" style="right: 100px; bottom: 150px">
-                   <button class="slide-expend-btn  d-block btn btn-outline-dark mb-2">
-                       <span class="text me-2 d-none">মন্তব্য করুন</span>
-                       <i style="margin-top: 2px" class="bi icon bi-chat-left"></i>
-                   </button>
-                </div>
+                <div id="course-details-page-actions" class="position-fixed rounded p-1 d-flex align-items-end justify-content-center flex-row flex-md-column" style="right: 0; bottom: 30px">
 
-                <div class="topic-action-buttons position-fixed" style="right: 100px; bottom: 100px">
-                   <button class="slide-expend-btn bookmark-action d-block btn {{$has_in_bookmarks ? 'btn-danger' : 'btn-outline-danger' }}  mb-2">
+                    <div class="topic-action-buttons d-block d-md-none">
+                        <button class="d-block btn btn-outline-dark mb-2" data-bs-toggle="offcanvas" data-bs-target="#topic-menu-sidebar">
+                            <i style="margin-top: 2px" class="bi icon bi-list-columns-reverse"></i>
+                        </button>
+                    </div>
+
+                    <div class="topic-action-buttons">
+                        <button class="slide-expend-btn d-block btn btn-outline-dark mb-2">
+                            <span class="text me-2 d-none" >মন্তব্য করুন</span>
+                            <i style="margin-top: 2px" class="bi icon bi-chat-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="topic-action-buttons">
+                        <button class="slide-expend-btn bookmark-action d-block btn {{$has_in_bookmarks ? 'btn-danger' : 'btn-outline-danger' }}  mb-2">
                        <span class="text me-2 d-none">
                            @if($has_in_bookmarks)
                                বুকমার্কে থেকে মুছে ফেলুন
@@ -156,12 +164,12 @@
                            @endif
 
                        </span>
-                       <i style="margin-top: 2px" class="bi icon bi-heart"></i>
-                   </button>
-                </div>
+                            <i style="margin-top: 2px" class="bi icon bi-heart"></i>
+                        </button>
+                    </div>
 
-                <div class="topic-action-buttons position-fixed" style="right: 100px; bottom: 50px">
-                   <button class="slide-expend-btn importance-action d-block btn {{$has_in_importance ? 'btn-success' : 'btn-outline-success' }}  mb-2">
+                    <div class="topic-action-buttons">
+                        <button class="slide-expend-btn importance-action d-block btn {{$has_in_importance ? 'btn-success' : 'btn-outline-success' }}  mb-2">
                        <span class="text me-2 d-none">
                            @if($has_in_importance)
                                গুরুত্বপূর্ন বিষয় থেকে মুছে ফেলুন
@@ -169,13 +177,40 @@
                                গুরুত্বপূর্ন বিষয়ে যুক্ত করুন
                            @endif
                        </span>
-                       <i style="margin-top: 2px" class="bi icon bi-journal-arrow-up"></i>
-                   </button>
+                            <i style="margin-top: 2px" class="bi icon bi-journal-arrow-up"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+    <!-- Topic Menu Offcanvas-->
+    <div class="offcanvas offcanvas-start" id="topic-menu-sidebar">
+        <div class="offcanvas-header">
+            <h1 class="offcanvas-title">{{$course->name}}</h1>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                @foreach($topics as $topic)
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('course-details', [$course->slug, $topic->slug])}}">
+                            @if($topic->is_paid)
+                                <i class="bi bi-lock"></i>
+                            @elseif($topic->slug == $active_topic->slug)
+                                <i class="bi bi-app-indicator"></i>
+                            @else
+                                <i class="bi bi-app"></i>
+                            @endif
+                            <span> {{$topic->name}} </span>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
 @endsection
 @section('script')
     <script>

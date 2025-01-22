@@ -1,16 +1,56 @@
 /* Extra small devices (phones, <576px) */
 @media (max-width: 575.98px) {
-    /* Styles for smaller than 576px */
+    #course-details-page-actions{
+        background-color: var(--site-body-color);
+        width: 100%;
+        bottom: 0!important;
+        padding: 10px 0px!important;
+    }
+
+    #course-details-page-actions .topic-action-buttons{
+        margin-right: 10px;
+    }
+
+    .slide-expend-btn:hover .text{
+        display: none!important;
+    }
 }
 
 /* Small devices (≥576px) */
 @media (min-width: 576px) {
     /* Styles for 576px and up */
+    #course-details-page-actions{
+        background-color: var(--site-body-color);
+        width: 100%;
+        bottom: 0!important;
+        padding: 10px 0px!important;
+    }
+
+    #course-details-page-actions .topic-action-buttons{
+        margin-right: 10px;
+    }
+
+    .slide-expend-btn:hover .text{
+        display: none!important;
+    }
 }
 
 /* Medium devices (≥768px) */
 @media (min-width: 768px) {
-    /* Styles for 768px and up */
+    /* Styles for 576px and up */
+    #course-details-page-actions{
+        background-color: inherit;
+        width: inherit;
+        padding: 10px!important;
+    }
+
+    #course-details-page-actions .topic-action-buttons{
+        margin-right: inherit;
+    }
+
+    .slide-expend-btn:hover .text{
+        display: inline-block!important;
+    }
 }
 
 /* Large devices (≥992px) */

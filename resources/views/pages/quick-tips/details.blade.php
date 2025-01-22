@@ -14,14 +14,12 @@
                                 <div>{!! $quick_tip->description  !!}</div>
                             @else
                                 <div id="markdown" class=" bg-white text-dark py-2">
-                                    <script>
+                                    {!! \Parsedown::instance()->text($docs->description) !!}
+                                    {{--<script>
                                         document.write(md.render(@json($quick_tip->description)))
-                                    </script>
+                                    </script>--}}
                                 </div>
                             @endif
-
-
-
                         </div>
 
 
