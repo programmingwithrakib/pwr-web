@@ -133,6 +133,15 @@
                                 @endif
                             @endforeach
 
+                                @foreach($active_topic->short_cuts as $short_cut)
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('topic-shortcuts.details', $short_cut->slug)}}">
+                                            <i class="bi bi-arrow-right-short"></i>
+                                            <span> {{$short_cut->title}}  </span>
+                                        </a>
+                                    </li>
+                                @endforeach
+
                         </ul>
                     </div>
                 </div>
@@ -242,6 +251,15 @@
                             </a>
                         </li>
                     @endif
+                @endforeach
+
+                @foreach($active_topic->short_cuts as $short_cut)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('topic-shortcuts.details', $short_cut->slug)}}">
+                                <i class="bi bi-arrow-right-short"></i>
+                                <span> {{$short_cut->title}} </span>
+                            </a>
+                        </li>
                 @endforeach
             </ul>
         </div>

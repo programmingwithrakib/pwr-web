@@ -15,4 +15,9 @@ class CourseTopic extends Model
     {
         return $this->hasMany(CourseTopicResource::class);
     }
+
+    function short_cuts()
+    {
+        return $this->hasMany(TopicShortCut::class);
+    }
 }
