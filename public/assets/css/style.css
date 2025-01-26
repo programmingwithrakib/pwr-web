@@ -356,5 +356,8 @@ tr td{
     display: inline-block!important;
 }
 
+ol{
+    list-style-type: bengali!important;
+}
 
 
