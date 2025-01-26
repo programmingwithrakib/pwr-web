@@ -360,4 +360,8 @@ ol{
     list-style-type: bengali!important;
 }
 
+li{
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
 
