@@ -13,7 +13,7 @@ class SiteMapController extends Controller
 {
     function index()
     {
-        $path = public_path('sitemap.xml');
+        $path = env("APP_ENV") == "local" ? public_path('sitemap.xml') : base_path('sitemap.xml');;
 
 
         $sitemap_generator = SitemapGenerator::create('https://programmingwithrakib.com')->getSitemap();
