@@ -54,4 +54,5 @@ Route::get('copyright-policy', [UtilityPageController::class, 'privacyPolicy'])-
 Route::get('code-of-conduct', [UtilityPageController::class, 'privacyPolicy'])->name('code-of-conduct');
 
 Route::get('/generate-sitemap', [\App\Http\Controllers\SiteMapController::class, 'index'])->name('sitemap');
+Route::get('/optimize-clear', [\App\Http\Controllers\UtilityPageController::class, 'optimizeClear']);
 
