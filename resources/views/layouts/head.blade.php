@@ -1,4 +1,4 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 <link href="{{asset("assets/vendors/bootstrap/bootstrap.min.css")}}" rel="stylesheet">
