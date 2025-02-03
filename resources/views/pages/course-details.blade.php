@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['meta_title' => $active_topic->name, 'meta_image' => $active_topic->image])
 @section('content')
     <div class="course-details mt-3">
         <div class="container">

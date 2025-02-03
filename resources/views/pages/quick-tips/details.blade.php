@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['meta_title' => $quick_tip->title])
 @section('content')
     <div class="course-details mt-3">
         <div class="container">

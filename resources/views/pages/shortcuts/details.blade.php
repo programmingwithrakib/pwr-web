@@ -1,4 +1,4 @@
-@extends('layouts.app', ['code_theme' => 'dark'])
+@extends('layouts.app', ['code_theme' => 'dark', 'meta_title' => $short_cut->title])
 @push('code-theme')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" rel="stylesheet">
 @endpush

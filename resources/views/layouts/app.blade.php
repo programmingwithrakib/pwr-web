@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="{{ isset($meta_title) ? 'ProgrammingWithRakib - '.$meta_title : 'ProgrammingWithRakib - ওয়েব প্রোগ্রামিং শেখার সেরা প্ল্যাটফর্ম' }}">
     <meta name="twitter:description" content="ওয়েব প্রোগ্রামিং, কোডিং টিপস, নোটস এবং টিউটোরিয়াল নিয়ে সর্বশেষ আপডেট পান।">
     <meta name="twitter:image" content="{{$meta_image ?? 'https://programmingwithrakib.com/assets/images/logo.png'}}">
-    <meta name="twitter:site" content="@yourTwitterHandle">
+    <meta name="twitter:site" content="@ProgrammingWithRakib">
 
 
 

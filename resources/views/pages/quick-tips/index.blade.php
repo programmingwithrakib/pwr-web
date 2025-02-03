@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['meta_title' => 'Quick Tips'])
 @section('content')
     <div class="container mt-3">
         <div class="container-fluid">
