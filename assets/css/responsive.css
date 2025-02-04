@@ -44,7 +44,7 @@
     /* Styles for 576px and up */
     #course-details-page-actions{
         background-color: inherit;
-        width: inherit;
+        width: auto;
         padding: 10px!important;
     }
 
