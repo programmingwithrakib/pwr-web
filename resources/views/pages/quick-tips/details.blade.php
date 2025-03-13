@@ -14,7 +14,7 @@
                                 <div>{!! $quick_tip->description  !!}</div>
                             @else
                                 <div id="markdown" class=" bg-white text-dark py-2">
-                                    {!! \Parsedown::instance()->text($docs->description) !!}
+                                    {!! \Parsedown::instance()->text($quick_tip->description) !!}
                                     {{--<script>
                                         document.write(md.render(@json($quick_tip->description)))
                                     </script>--}}
