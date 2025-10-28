@@ -34,13 +34,13 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->dropUnique(['email', 'provider_name']);
             $table->dropColumn('phone');
             $table->dropColumn('image');
             $table->dropColumn('status');
             $table->dropColumn('provider_name');
             $table->dropColumn('provider_id');
             $table->dropColumn('provider_token');
-            $table->dropUnique(['email', 'provider_name']);
             $table->unique('email');
             $table->string('password')->change();
         });
