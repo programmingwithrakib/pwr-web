@@ -20,17 +20,17 @@
                         <li class="nav-item m-0">
                             <a class="nav-link" href="{{route('quick-tips')}}">কুইক টিপস</a>
                         </li>
-                        <li class="nav-item m-0">
+                       <li class="nav-item m-0">
                             <a class="nav-link" href="{{route('roadmap')}}">রোডম্যাপ</a>
                         </li>
-                        <li class="nav-item m-0">
+                        {{--<li class="nav-item m-0">
                             <a class="nav-link" href="{{route('pricing')}}">প্রাইসিং</a>
-                        </li>
-                        @if(!auth()->check())
+                        </li>--}}
+                        {{--@if(!auth()->check())
                             <li class="nav-item m-0">
                                 <a class="nav-link" href="{{route('login')}}">লগ ইন</a>
                             </li>
-                        @endif
+                        @endif--}}
 
                     </ul>
 
@@ -57,9 +57,12 @@
                             </ul>
                         </div>
                     @else
-                        <div>
+                        @if(!auth()->check())
+                                <a class="btn btn-brand" href="{{route('login')}}">লগ ইন</a>
+                        @endif
+                       {{-- <div>
                             <a href="#" class="btn btn-brand">জয়েন প্রিমিয়াম</a>
-                        </div>
+                        </div>--}}
                     @endif
 
                 </div>
