@@ -30,6 +30,7 @@
                     </div>
 
                     <div class="col-md-7 ">
+
                         @if($active_topic->is_paid)
                             <div style="height: 400px; background-image: url({{$topic->image}}); background-size: cover" class="topic-image position-relative">
 {{--                                <img class="img-fluid" src="{{$topic->image}}" alt="{{$topic->name}}">--}}
@@ -58,6 +59,14 @@
                                 </div>
 
                             @elseif($active_topic->play_as == "image")
+                                <div class="video-description">
+                                    <img class="img-fluid" src="{{$active_topic->image}}" alt="{{$active_topic->name}}">
+                                </div>
+                            @elseif($active_topic->play_as == "iframe")
+                                <div class="iframe-preview">
+                                    {!! $active_topic->iframe_body !!}
+                                </div>
+                            @elseif($active_topic->play_as == "iframe")
                                 <div class="video-description">
                                     <img class="img-fluid" src="{{$active_topic->image}}" alt="{{$active_topic->name}}">
                                 </div>

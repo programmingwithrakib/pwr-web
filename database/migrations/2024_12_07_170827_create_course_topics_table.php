@@ -20,9 +20,10 @@ return new class extends Migration
             $table->text('description')->nullable()->default(null);
             $table->enum('description_type', ['md', 'text'])->default('text');
             $table->string('video_link')->nullable()->default(null);
+            $table->text('iframe_body')->nullable()->default(null);
             $table->enum('video_type', ['youtube', 'vimeo', 'local', 'others'])->default('youtube');
             $table->string('image')->nullable()->default(null);
-            $table->enum('play_as', ['video', 'image', 'none'])->default('video');
+            $table->enum('play_as', ['video', 'image', 'iframe', 'none'])->default('video');
             $table->boolean('is_paid')->nullable()->default(false);
             $table->softDeletes();
             $table->timestamps();
