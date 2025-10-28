@@ -2,41 +2,38 @@
     <div class="container navbar navbar-expand-md">
         <div class="container-fluid">
             <a class="navbar-brand playwrite-hr-lijeva-regular" href="{{route('home')}}">
-                <img style="height: 50px" src="{{asset('assets/images/logo.png')}}">
+                <img style="height: 60px; margin-left: -13px" src="{{asset('assets/images/logo.png')}}">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menus">
                 <span class="bi bi-list"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbar-menus">
-                <div class="d-flex flex-column flex-md-row justify-content-between w-100">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center w-100">
                     <div style="visibility: hidden">i</div>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item m-0">
                             <a class="nav-link" href="{{route('curriculum')}}">কারিকুলাম</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item m-0">
                             <a class="nav-link" href="{{route('home')}}">কোর্স</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item m-0">
                             <a class="nav-link" href="{{route('quick-tips')}}">কুইক টিপস</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item m-0">
                             <a class="nav-link" href="{{route('roadmap')}}">রোডম্যাপ</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item m-0">
                             <a class="nav-link" href="{{route('pricing')}}">প্রাইসিং</a>
                         </li>
                         @if(!auth()->check())
-                            <li class="nav-item">
+                            <li class="nav-item m-0">
                                 <a class="nav-link" href="{{route('login')}}">লগ ইন</a>
                             </li>
                         @endif
 
                     </ul>
-                    <!--<form class="d-flex mb-0">
-                        <input class="form-control me-2" type="text" placeholder="Search">
-                        <button class="btn btn-primary" type="button">Search</button>
-                    </form>-->
+
 
                     @if(auth()->check())
                         <div class="dropdown">
